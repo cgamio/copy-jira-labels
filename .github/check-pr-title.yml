@@ -1,0 +1,11 @@
+name: Check PR Titles
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+steps:
+- uses: deepakputhraya/action-pr-title@master
+  with:
+    regex: '^[a-zA-Z0-9-_]+\/(RP|rp)-[0-9]+[-_\s]{1}[a-zA-Z0-9-_]+$' # Regex the title should match.
+    github_token: ${{ github.token }}
